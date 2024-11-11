@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$ELONBULK 🚀 - GET HUGE OR DIE MIRIN'</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="hero-content">
+            <div class="gains-display">
+                <span id="gains-number">0</span> GAINS
+            </div>
+            <div class="image-container">
+                <img src="elon.png" alt="Buff Elon" class="hero-img" id="muscle-btn">
+                <div class="tap-indicator"></div>
+                <div class="tap-text">TAP TO PUMP!</div>
+            </div>
+            
+            <h1 class="gradient-text">$ELONBULK</h1>
+            <p class="hero-subtitle">FIRST MEMECOIN WITH ACTUAL GAINS 💪</p>
+           
+            <a href="https://raydium.io/swap" target="_blank" class="buy-btn pulse">BUY $ELONBULK</a>
+            <a href="dajon67878@inikale.com" target="_blank" class="tg-btn">
+                <i class="fab fa-telegram"></i> JOIN TELEGRAM
+            </a>
+        </div>    </div>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-card">
+            <i class="fas fa-rocket"></i>
+            <h3>SOLANA</h3>
+            <p>FASTEST BLOCKCHAIN</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-dumbbell"></i>
+            <h3>1000x</h3>
+            <p>POTENTIAL GAINS</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-bolt"></i>
+            <h3>RAYDIUM</h3>
+            <p>DEX TRADING</p>
+        </div>
+    </section>
+
+    <!-- Gains Counter -->
+    <section class="gains-counter">
+        <h2 class="section-title">PUMP YOUR GAINS</h2>
+        <div class="counter-container">
+            <div class="gains-display">
+                <span id="gains-number">0</span> GAINS
+            </div>
+            <div class="muscle-btn" id="muscle-btn">
+                <i class="fas fa-dumbbell"></i>
+            </div>
+            <div id="motivation-text" class="motivation-text">START PUMPING!</div>
+        </div>
+    </section>
+
+    <!-- Meme Gallery -->
+    <section class="meme-gallery">
+        <h2 class="section-title">MEME GAINS INCOMING</h2>
+        <div class="meme-grid">
+            <div class="meme-card">
+                <img src="zero.png" alt="Buff Elon" class="meme-img">
+                <p>From Zero to Hero 💪</p>
+            </div>
+            <div class="meme-card">
+                <img src="mindset.png" alt="Elon Gym" class="meme-img">
+                <p>$ELONBULK Mindset 🔱</p>
+            </div>
+            
+            <div class="meme-card">
+                <img src="average.png" alt="Chad Elon" class="meme-img">
+                <p>Average $ELONBULK Enjoyer 😎</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this before closing body tag -->
+    <script>
+    const muscleBtn = document.getElementById('muscle-btn');
+    const gainsNumber = document.getElementById('gains-number');
+    const motivationText = document.getElementById('motivation-text');
+    let gains = 0;
+
+    const motivationalPhrases = [
+        "LETS GOOO! 💪",
+        "GIGACHAD ENERGY! 🔱",
+        "PUMP IT! 🚀",
+        "HUGE GAINS! 📈",
+        "SIGMA GRINDSET! 😤",
+        "MOON SOON! 🌕",
+        "BULK SZN! 🏋️‍♂️",
+        "WAGMI! ⚡️",
+        "GETTING HUGE! 💪",
+        "ELON APPROVED! 🔥"
+    ];
+
+    muscleBtn.addEventListener('click', () => {
+        gains++;
+        gainsNumber.textContent = gains;
+        
+        // Анимация кнопки
+        muscleBtn.classList.add('pump');
+        setTimeout(() => muscleBtn.classList.remove('pump'), 200);
+        
+        // Случайная мотивационная фраза
+        const randomPhrase = motivationalPhrases[Math.floor(Math.random() * motivationalPhrases.length)];
+        motivationText.textContent = randomPhrase;
+        
+        // Добавляем эффект встряски для текста
+        motivationText.classList.add('shake');
+        setTimeout(() => motivationText.classList.remove('shake'), 500);
+    });
+    </script>
+</body>
+</html>

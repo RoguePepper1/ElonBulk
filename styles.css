@@ -1,0 +1,458 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Hero Section with Parallax Stars */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stars, .twinkling {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.stars {
+    background: #000 url('stars.png') repeat top center;
+    z-index: 0;
+}
+
+.twinkling {
+    background: transparent url('twinkling.png') repeat top center;
+    z-index: 1;
+    animation: move-twinkle 200s linear infinite;
+}
+
+@keyframes move-twinkle {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 4px solid #ff6b6b;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255,107,107,0.5);
+}
+
+.hero-img:hover + .tap-indicator {
+    animation-play-state: paused;
+}
+
+.hero-img.pump {
+    transform: scale(0.95);
+}
+
+.gradient-text {
+    font-size: 5rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(255,107,107,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #4ecdc4;
+    margin-bottom: 2rem;
+}
+
+/* Price Ticker */
+.price-ticker {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.change.positive {
+    color: #4ecdc4;
+}
+
+/* Pulsing Buy Button */
+.buy-btn {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Stats Section */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background: #111;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+/* Meme Gallery */
+.meme-gallery {
+    padding: 4rem 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.meme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.meme-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.meme-card:hover {
+    transform: scale(1.05);
+}
+
+.meme-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.meme-card p {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    background: rgba(0,0,0,0.8);
+}
+
+/* Tokenomics */
+.tokenomics {
+    background: #111;
+    padding: 4rem 2rem;
+}
+
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tokenomics-card {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Roadmap */
+.roadmap {
+    padding: 4rem 2rem;
+}
+
+.roadmap-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: #ff6b6b;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.roadmap-item {
+    margin: 2rem 0;
+    position: relative;
+    width: 50%;
+    padding: 2rem;
+}
+
+.roadmap-item:nth-child(odd) {
+    left: 0;
+}
+
+.roadmap-item:nth-child(even) {
+    left: 50%;
+}
+
+.phase {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    padding: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-btn {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: color 0.3s;
+}
+
+.social-btn:hover {
+    color: #ff6b6b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gradient-text {
+        font-size: 3rem;
+    }
+    
+    .roadmap-timeline::before {
+        left: 0;
+    }
+    
+    .roadmap-item {
+        width: 100%;
+        left: 0 !important;
+    }
+}
+
+/* Gains Counter */
+.gains-counter {
+    display: none;
+}
+
+.gains-display {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 2rem 0;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255,107,107,0.3);
+    position: relative;
+    z-index: 3;
+}
+
+.motivation-text {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-weight: bold;
+    color: #4ecdc4;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.image-container {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.tap-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    border: 3px dashed #4ecdc4;
+    border-radius: 50%;
+    animation: rotate 10s linear infinite, pulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.tap-text {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    animation: bounce 2s ease-in-out infinite;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+    }
+    50% {
+        opacity: 1;
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
+    }
+    100% {
+        opacity: 0.5;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* Telegram Button */
+.tg-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #0088cc, #00a2ff);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+.tg-btn i {
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+.tg-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+}
+
+.tg-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .tg-btn, .buy-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .gains-display {
+        font-size: 2.5rem;
+        margin: 1.5rem 0;
+    }
+}
